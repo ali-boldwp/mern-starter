@@ -1,27 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
-import {sayHello} from "@libs/test"
+import AppContext from "./AppContext";
+import routes from "./config/routesConfig"
+import {BrowserRouter} from 'react-router-dom';
+import AppRoutes from './AppRoutes';
+import Authorization from '@libs/Authorization/index'
+import AuthProvider from './AuthProvider';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          { sayHello() }
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    return (
+        <AppContext.Provider
+            value={{
+                routes
+            }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+            <AuthProvider>
+                <BrowserRouter>
+                    <AppRoutes/>
+                </BrowserRouter>
+            </AuthProvider>
+
+        </AppContext.Provider>
+    );
 }
 
 export default App;

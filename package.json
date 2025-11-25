@@ -11,7 +11,9 @@
     "concurrently": "^9.2.1"
   },
   "dependencies": {
+    "@libs/Authorization": "file:./libs/Authorization",
     "@libs/test": "file:./libs/test",
+    "@libs/utils": "file:./libs/utils",
     "client": "^0.0.1"
   }
 }

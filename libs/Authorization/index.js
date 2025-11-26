@@ -1,12 +1,7 @@
 // ../../libs/Authorization/index.js
 
-import React, { createContext, useState, useMemo } from 'react';
-
-// Create the auth context
-const AuthContext = createContext({
-    user: null,
-    setUser: () => {}
-});
+import React, { useState, useMemo } from 'react';
+import AuthContext from '@libs/AuthContext';
 
 // AuthProvider component WITHOUT JSX
 export const AuthProvider = ({ children }) => {

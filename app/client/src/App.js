@@ -1,25 +1,29 @@
 import './App.css';
-import AppContext from "./AppContext";
+import AppContext from '@libs/AppContext';
 import routes from "./config/routesConfig"
 import {BrowserRouter} from 'react-router-dom';
 import AppRoutes from './AppRoutes';
-import Authorization from '@libs/Authorization/index'
-import AuthProvider from './AuthProvider';
+import { AuthProvider } from '@libs/Authorization'
+
+import { Provider } from 'react-redux';
+import store from './store';
 
 function App() {
     return (
-        <AppContext.Provider
-            value={{
-                routes
-            }}
-        >
-            <AuthProvider>
-                <BrowserRouter>
-                    <AppRoutes/>
-                </BrowserRouter>
-            </AuthProvider>
+        <Provider store={store}>
+            <AppContext.Provider
+                value={{
+                    routes
+                }}
+            >
+                <AuthProvider>
+                    <BrowserRouter>
+                        <AppRoutes/>
+                    </BrowserRouter>
+                </AuthProvider>
 
-        </AppContext.Provider>
+            </AppContext.Provider>
+        </Provider>
     );
 }
 

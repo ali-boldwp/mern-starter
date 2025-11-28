@@ -5,6 +5,8 @@
 
 /app/client/node_modules
 /app/client/package-lock.json
+/app/client/.env
 
 /app/server/node_modules
 /app/server/package-lock.json
+/app/server/.env
